@@ -56,16 +56,18 @@
         </p>
 
         <ul>
-            <li>Soit <code>m<sub>A</sub></code> le nombre d'unités militaires attaquantes.</li>
-            <li>Soit <code>m<sub>D</sub></code> le nombre d'unités militaires défenseuses.</li>
+            <li>Soit <var>m<sub>A</sub></var> le nombre d'unités militaires attaquantes.</li>
+            <li>Soit <var>m<sub>D</sub></var> le nombre d'unités militaires défenseuses.</li>
         </ul>
 
         <p>
-            Les unités défenseuses éliminent <code>⌈m<sub>D</sub> / 2⌉</code> unités attaquantes. S'il reste des attaquants (<code>m′<sub>A</sub></code>), alors :
+            Les unités défenseuses éliminent <strong>⌈<var>m<sub>D</sub></var> / 2⌉</strong> unités attaquantes.
+            S'il reste des attaquants (<var>m'<sub>A</sub></var>), alors :
         </p>
+
         <ul>
-            <li>Les attaquants restants éliminent <code>⌈m′<sub>A</sub> / 2⌉</code> unités défenseuses.</li>
-            <li>S'il reste des défenseurs (<code>m′<sub>D</sub></code>), ils éliminent à leur tour <code>⌈m′<sub>D</sub> / 2⌉</code> unités attaquantes.</li>
+            <li>Les attaquants restants éliminent <strong>⌈<var>m'<sub>A</sub></var> / 2⌉</strong> unités défenseuses.</li>
+            <li>S'il reste des défenseurs (<var>m'<sub>D</sub></var>), ils éliminent à leur tour <strong>⌈<var>m'<sub>D</sub></var> / 2⌉</strong> unités attaquantes.</li>
         </ul>
 
         <p>
@@ -82,23 +84,39 @@
 
 
     <section>
-      <h2>💰 Coûts et score</h2>
-      <ul>
-        <li>Unité civile : 5 or</li>
-        <li>Unité militaire : 10 or</li>
-        <li>Bâtiment : 15 or</li>
-      </ul>
-      <p>Chaque or récolté donne 1 point. Détruire une unité ennemie donne des points égaux à son coût si on est attaquant.</p>
+        <h2>💰 Coûts et score</h2>
+
+        <p>
+            Construire une unité coûte de l'or :
+        </p>
+        <ul>
+            <li>5 or pour une unité civile</li>
+            <li>10 or pour une unité militaire</li>
+            <li>15 or pour un bâtiment</li>
+        </ul>
+
+        <p>
+            Il existe deux façons de gagner des points :
+        </p>
+        <ul>
+            <li>Récolter de l'or : chaque unité d'or récoltée rapporte <strong>1 point</strong>.</li>
+            <li>Détruire des unités adverses en tant qu'attaquant : chaque unité détruite rapporte un nombre de points égal à son coût (ex. : 5 points pour une unité civile, 10 pour une militaire, etc.).</li>
+        </ul>
+
+        <p>
+            <em>Remarque :</em> L'or utilisé pour construire une unité <strong>ne retire pas de points</strong>, même s'il a été préalablement récolté.
+        </p>
     </section>
+
 
     <section>
       <h2>⛏️ Récolte d'or</h2>
-      <p>Une unité civile peut récolter une unité d'or par tour si elle est sur une case contenant de l'or. Deux unités sur la même case ne peuvent pas récolter deux fois par tour.</p>
+      <p>Pour récolter de l'or il faut qu'une unité civile soit une case avec de l'or et utilise l'action récolter. L'action récolter va alors diminuer de un la quantité d'or sur la case. Il n'est pas possible, même en utilisant deux unités civiles, de récolter deux fois l'or d'une même case. Il est possible, en revanche, que les deux joueurs aient une unité civile sur une case et récolte chacune à leur tour l'or.</p>
     </section>
 
     <section>
       <h2>👁️ Visibilité</h2>
-      <p>Un joueur ne voit qu'une case (x, y) si au moins une de ses unités est à une distance max(|x − x′|, |y − y′|) ≤ 2.</p>
+      <p>Un joueur ne voit qu'une case (x, y) si au moins une de ses unités est à une distance max(|x − x'|, |y − y'|) ≤ 2.</p>
     </section>
   </main>
 
