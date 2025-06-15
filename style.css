@@ -38,3 +38,18 @@ footer {
   font-size: 0.9rem;
   color: #777;
 }
+
+.unit {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.unit-img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin-right: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}

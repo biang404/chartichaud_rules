@@ -14,23 +14,72 @@
   <main>
     <section>
       <h2>🎮 Règles générales</h2>
-      <p>Le jeu se déroule sur une grille <strong>H × W</strong>. Chaque joueur possède un score, de l’or, et des unités. À chaque tour, les unités peuvent effectuer une action. Les unités militaires déclenchent des combats si elles partagent une case avec une unité adverse.</p>
+      <p>Le jeu se déroule sur une grille <strong>H x W</strong>.(Dans notre cas c'est 9 x 16) Chaque joueur possède un score, de l'or, et des unités. À chaque tour, les unités peuvent effectuer une action. Les unités militaires déclenchent des combats si elles partagent une case avec une unité adverse.</p>
     </section>
 
-    <section>
-      <h2>⚙️ Types d’unités et actions</h2>
-      <ul>
-        <li><strong>Unité militaire :</strong> déplacement (4 cases adjacentes)</li>
-        <li><strong>Unité civile :</strong> déplacement, construction, récolte d’or</li>
-        <li><strong>Bâtiment :</strong> recruter une unité civile ou militaire</li>
-      </ul>
-      <p>Une unité peut agir immédiatement après avoir été produite.</p>
-    </section>
+        <section>
+        <h2>⚙️ Types d'unités et actions</h2>
+
+        <div class="unit">
+            <img src="images/am.png" alt="Unité militaire" class="unit-img">
+            <div>
+            <strong>Unité militaire :</strong> déplacement (4 cases adjacentes)
+            </div>
+        </div>
+
+        <div class="unit">
+            <img src="images/ac.png" alt="Unité civile" class="unit-img">
+            <div>
+            <strong>Unité civile :</strong> déplacement, construction, récolte d'or
+            </div>
+        </div>
+
+        <div class="unit">
+            <img src="images/ab.png" alt="Bâtiment" class="unit-img">
+            <div>
+            <strong>Bâtiment :</strong> recruter une unité civile ou militaire
+            </div>
+        </div>
+
+        <p>Une unité peut agir immédiatement après avoir été produite.</p>
+        </section>
 
     <section>
-      <h2>⚔️ Combats</h2>
-      <p>À la fin du tour, si une case contient des unités adverses et au moins une militaire, un combat a lieu. Les unités militaires s’éliminent selon un système de riposte alternée. Le perdant perd aussi ses civils et bâtiments sur la case.</p>
+        <h2>⚔️ Combats</h2>
+        <p>
+            Si à la fin d'un tour, une case contient des unités des deux joueurs, et au moins une unité militaire, un <strong>combat</strong> a lieu.
+            L'<strong>attaquant</strong> est le joueur qui vient de jouer. L'<strong>issue du combat</strong> et les <strong>points obtenus</strong> dépendent de qui est l'attaquant.
+        </p>
+
+        <p>
+            Le combat commence par l'affrontement des unités <strong>militaires</strong> :
+        </p>
+
+        <ul>
+            <li>Soit <code>m<sub>A</sub></code> le nombre d'unités militaires attaquantes.</li>
+            <li>Soit <code>m<sub>D</sub></code> le nombre d'unités militaires défenseuses.</li>
+        </ul>
+
+        <p>
+            Les unités défenseuses éliminent <code>⌈m<sub>D</sub> / 2⌉</code> unités attaquantes. S'il reste des attaquants (<code>m′<sub>A</sub></code>), alors :
+        </p>
+        <ul>
+            <li>Les attaquants restants éliminent <code>⌈m′<sub>A</sub> / 2⌉</code> unités défenseuses.</li>
+            <li>S'il reste des défenseurs (<code>m′<sub>D</sub></code>), ils éliminent à leur tour <code>⌈m′<sub>D</sub> / 2⌉</code> unités attaquantes.</li>
+        </ul>
+
+        <p>
+            Ce processus continue <strong>en alternance</strong> jusqu'à ce que toutes les unités militaires d'un des deux camps soient éliminées (ce qui peut être immédiat si un camp n'avait pas d'unités militaires au départ).
+        </p>
+
+        <p>
+            Une fois toutes les unités militaires d'un joueur éliminées :
+            <strong>ce joueur perd toutes ses unités civiles et bâtiments</strong> sur la case.
+        </p>
+
+        <p><em>Note :</em> Seul l'attaquant peut gagner des points en détruisant les unités adverses.</p>
     </section>
+
 
     <section>
       <h2>💰 Coûts et score</h2>
@@ -43,18 +92,18 @@
     </section>
 
     <section>
-      <h2>⛏️ Récolte d’or</h2>
-      <p>Une unité civile peut récolter une unité d’or par tour si elle est sur une case contenant de l’or. Deux unités sur la même case ne peuvent pas récolter deux fois par tour.</p>
+      <h2>⛏️ Récolte d'or</h2>
+      <p>Une unité civile peut récolter une unité d'or par tour si elle est sur une case contenant de l'or. Deux unités sur la même case ne peuvent pas récolter deux fois par tour.</p>
     </section>
 
     <section>
       <h2>👁️ Visibilité</h2>
-      <p>Un joueur ne voit qu’une case (x, y) si au moins une de ses unités est à une distance max(|x − x′|, |y − y′|) ≤ 2.</p>
+      <p>Un joueur ne voit qu'une case (x, y) si au moins une de ses unités est à une distance max(|x − x′|, |y − y′|) ≤ 2.</p>
     </section>
   </main>
 
   <footer>
-    <p>Développé par Zhiying | <a href="mailto:votre@email.com">Contact</a></p>
+    <p>Développé par ia-strat-ia</p>
   </footer>
 </body>
 </html>
